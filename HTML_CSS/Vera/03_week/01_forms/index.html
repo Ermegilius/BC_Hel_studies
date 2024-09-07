@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML classes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Start of the header section-->
+<header>
+    <nav>
+         <ul>
+            <li> <a href="home.html">Home</a></li>
+            <li>Contacts</li>
+            <li>About</li>
+        </ul>   
+    </nav>
+    <div class="banner">
+        <h1>This is the title</h1>
+    </div>
+</header>
+<!-- End of the header -->
+<main>
+    <section>
+        <h2>Input class</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Input example</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        type - "text"
+                    </td>
+                    <td>
+                        <label for="name">First name:</label>
+                        <input type="text" id="name">
+                    </td>
+                    <td>Defines a simple-line text field that a user can enter text into.</td>
+                </tr>
+                <tr>
+                    <td>
+                        type - ""checkbox
+                    </td>
+                    <td>
+                        <input type="checkbox" name="first"> first choise <br>
+                        <input type="checkbox" name="second"> second choise <br>
+                        <input type="checkbox" name="third"> third choise <br>
+                    </td>
+                    <td>Checkbox text is palced after input tag. You can also replace text with lavel.</td>
+                </tr>
+                <tr>
+                    <td>type - "radio"</td>
+                    <td><input type="radio" name="radio" id="gaga"> Radio Gaga <br>
+                        <input type="radio" name="radio" id="gugu"> Radio Gugu
+                    </td>
+                    <td>Radio buttons alow you only one option.</td>
+                </tr>
+                <tr>
+                    <td>type - "month"</td>
+                    <td><input type="month" name="dday">
+                    </td>
+                    <td>Month creates month and year control.</td>
+                </tr>
+                <tr>
+                    <td>Select example</td>
+                    <td><select name="songs">
+                        <option value="default">Bohemian rhapsody</option>
+                        <option value="123">123</option>
+                        <option value="666">666</option>
+                        <option value="777">Three axes</option>
+                    </select></td>
+                    <td>By default this creates a dropdown that allows the user one choice. <br> 
+                    Adding size and miltiple attributes will allow the user to pick many.</td>
+                </tr>
+
+            
+            </tbody>
+        </table>
+    
+    </section>
+</main>
+</body>
+</html>

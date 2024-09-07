@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: red;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #000;
+}
+
+header{
+    background-color: #320bf865;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(47, 47, 47);
+    margin: 5px 20px;
+}
+
+li a {
+    color: orange;
+    text-decoration: none;
+    display: block;
+}
+
+li a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+
+.banner{
+    color: #FFFFFF;
+    text-align: center;
+    padding: 45px 0px 50px 0px;
+}
+
+
+hr {
+    height: 30px;
+    background-image: url("https://img.freepik.com/premium-vector/monochrome-illusory-abstract-geometric-seamless-pattern-with-3d-geometric-figures-vector-black-white-striped-backdrop_570429-6893.jpg?w=1060");
+}
+
+img {
+    max-width: 40%;
+    max-height: 300px;
+}
+
+
+/* descendant selector */
+section p {
+    border: solid gray 1px;
+}
+
+/* child secletor */
+section > p {
+    color: green;
+}
+
+/* adjacement siblings
+The + selector is used to select an element that is directly after another specific element.*/
+hr + p {
+    color: gray;
+}
+
+/* general siblings selector
+The general sibling selector (~) selects all elements that are next siblings of a specified element.*/
+article ~ p {
+    color: blue;
+}
+
+img {
+    max-width: 30%;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+td, th {
+    text-align: left;
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #FFFFFF ;
+}
+
+th {
+    text-align: center;
+}
+
+thead {
+    background-color: rgba(255, 166, 0, 0.804);
+    color: #FFFFFF;
+}
+
+.odd{
+    background-color: rgb(61, 61, 61);
+}

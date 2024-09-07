@@ -1,0 +1,32 @@
+body {
+    color: red;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #000;
+}
+hr {
+    height: 50px;
+    background-image: url("https://img.freepik.com/premium-vector/monochrome-illusory-abstract-geometric-seamless-pattern-with-3d-geometric-figures-vector-black-white-striped-backdrop_570429-6893.jpg?w=1060");
+}
+
+img {
+    max-width: 40%;
+    max-height: 300px;
+}
+
+a {
+    color: orange;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+    border: solid white 2px;
+    width: 150px;
+    height: 45px;
+    text-align: center;
+    background-color: rgb(47, 47, 47);
+}

@@ -1,0 +1,13 @@
+body {
+    background-color: #123456;
+    color: #ff5f64;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    color: red;
+    background-color: black;
+}
+
+/*Comments*/

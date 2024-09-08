@@ -48,8 +48,12 @@ section {
 }
 
 .box {
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center; 
     background-color: blue;
     width: 150px;
     height: 150px;
     margin: 2rem;
+    color: #FFFFFF;
 }

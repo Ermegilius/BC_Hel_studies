@@ -26,4 +26,15 @@ function totalCounter() {
     }
 }
 
+function priceBannerAnimation() {
+    let banner = document.querySelector('.price-banner');
+    banner.style.animationName = 'priceBannerAnimation';
+    banner.style.backgroundImage = 'url(./public/images/Spinner@1x-1.0s-200px-200px.gif)';
+    setTimeout(() => {
+        banner.style.animationName = '';
+        banner.style.backgroundImage = '';
+    }, 1000);
+}
+
 addEventListener('change', totalCounter);
+addEventListener('change', priceBannerAnimation);

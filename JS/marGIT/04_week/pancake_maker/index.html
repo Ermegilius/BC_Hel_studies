@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Pancake Maker</title>
     <link rel="stylesheet" href="style.css" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -18,28 +18,58 @@
       </div>
       <div class="form-container">
         <h2>Customize Your Pancake</h2>
-        <div class="customization-section">
-          <label for="type">Choose your pancake type:</label>
+
+        <form class ="customization-section">
+          <label for="clientName">What is your name?</label>
+          <input type="text" name="clientName">
+        </form>
+        <hr>
+
+        <div class ="customization-section"> 
+
+          <p>Where would you like to eat?</p>  
+            <div>
+              <input type="radio" id="eatIn" name="orderInfo" value="0" checked />
+              <label for="eatIn">Eat in</label>
+            </div>
+                
+            <div>
+              <input type="radio" id="pickUp" name="orderInfo" value="0" />
+              <label for="pickUp">Pick Up</label>
+            </div>
+                
+            <div>
+              <input type="radio" id="delivery" name="orderInfo" value="5" />
+              <label for="delivery">Delivery (plus $5 to the total)</label>
+            </div>
+            <hr>
+
+          <label for="type">
+            Choose your pancake type:
+          </label>
           <select id="type">
             <option value="5">Classic - $5</option>
             <option value="6">Chocolate - $6</option>
             <option value="7">Blueberry - $7</option>
           </select>
-        </div>
-        <div class="customization-section">
-          <p>Select your toppings ($1 each):</p>
+
+          <p>
+            Select your toppings ($1 each):
+          </p>
           <input type="checkbox" id="nuts" value="1" />Nuts<br />
           <input type="checkbox" id="bananas" value="1" />Bananas<br />
           <input type="checkbox" id="syrup" value="1" />Syrup<br />
-        </div>
-        <div class="customization-section">
-          <p>Add extras:</p>
-          <input type="checkbox" id="whippedCream" value="2" />Whipped Cream -
-          $2<br />
+          
+          <p>
+            Add extras:
+          </p>
+          <input type="checkbox" id="whippedCream" value="2" />Whipped Cream - $2<br />
           <input type="checkbox" id="iceCream" value="3" />Ice Cream - $3<br />
-        </div>
-        <div class="price-display">
-          <h3>Total Price: <span id="totalPrice">$5</span></h3>
+
+          <div class="price-display">
+            <h3>Total Price: <span id="totalPrice">$5</span></h3>
+            <button class="makeOrder" type="button">Place the order</button>
+          </div>
         </div>
       </div>
     </div>

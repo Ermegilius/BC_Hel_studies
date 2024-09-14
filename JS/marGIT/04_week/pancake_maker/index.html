@@ -17,11 +17,27 @@
         <div class="price-banner"><span id="totalPrice">$5</span></div>
       </div>
       <div class="form-container">
-        <h2>Customize Your Pancake</h2>
+        <h2 id="formHeader">Customize Your Pancake</h2>
+
+        <div id="order" class="hidden">
+          <p>Customer Name: <br>
+            <span id="orderClientName">client's name</span>
+          </p>
+          <p>Selected Pancake Type, Toppings, and Extras:
+            <ul id="orderPancakeOptions">
+            </ul>
+          </p>
+          <p>Chosen Delivery Method: <br>
+            <span id="orderDelivery">selected dilivery metod</span>
+          </p>
+          <p>Total Price (including any delivery charges): <br>
+            <span id="orderTotalPrice">total price</span>
+          </p>
+        </div>
 
         <form class ="customization-section">
           <label for="clientName">What is your name?</label>
-          <input type="text" name="clientName">
+          <input type="text" name="clientName" id="clientName" required>
         </form>
         <hr>
 
@@ -29,17 +45,17 @@
 
           <p>Where would you like to eat?</p>  
             <div>
-              <input type="radio" id="eatIn" name="orderInfo" value="0" checked />
+              <input type="radio" id="eatIn" name="deliveryInfo" value="0" checked />
               <label for="eatIn">Eat in</label>
             </div>
                 
             <div>
-              <input type="radio" id="pickUp" name="orderInfo" value="0" />
+              <input type="radio" id="pickUp" name="deliveryInfo" value="0" />
               <label for="pickUp">Pick Up</label>
             </div>
                 
             <div>
-              <input type="radio" id="delivery" name="orderInfo" value="5" />
+              <input type="radio" id="delivery" name="deliveryInfo" value="5" />
               <label for="delivery">Delivery (plus $5 to the total)</label>
             </div>
             <hr>
@@ -68,7 +84,7 @@
 
           <div class="price-display">
             <h3>Total Price: <span id="totalPrice">$5</span></h3>
-            <button class="makeOrder" type="button">Place the order</button>
+            <button class="makeOrder" type="button" onclick="placeOrder()">Place the order</button>
           </div>
         </div>
       </div>

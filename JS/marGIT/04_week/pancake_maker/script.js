@@ -5,7 +5,7 @@ let formHeader = document.querySelector('#formHeader');//get h1
 let customizationSection = document.querySelectorAll('.customization-section');//get the whole customization sections, hides after the order button
 let order = document.querySelector('#order');//whole order form, hidden initially, appears after the order button
 
-//4) this function returns the total price of the order which is used for the banner, total price fields in the customization and order forms.
+// this function returns the total price of the order which is used for the banner, total price fields in the customization and order forms.
 function totalCounter() {
     let inputs = document.getElementsByTagName('input'); //get all inputs on the page
 

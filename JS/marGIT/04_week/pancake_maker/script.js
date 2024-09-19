@@ -90,5 +90,12 @@ function placeOrder() {
     }
 }
 
+function returnBack() {
+    order.classList.remove('hidden');
+    order.classList.add('hidden');
+    section.classList.add('hidden');
+    section.classList.remove('hidden');
+}
+
 addEventListener('change', totalCounter);
 addEventListener('change', priceBannerAnimation)

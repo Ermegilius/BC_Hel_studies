@@ -1,0 +1,167 @@
+:root {
+    --font: "Raleway", Verdana, sans-serif;
+    --dark-blue: #074788;
+    --light-blue: #79b5f2;
+    --neutral-color: #c4cbd1;
+    --neutral-footer: #cfffd0;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    color: var(--dark-blue);
+    font-size: .9rem;
+}
+
+#container {
+    max-width: 80%;
+    margin: 0 auto;
+    background: var(--neutral-footer);
+}
+
+header {
+    background: var(--dark-blue);
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    color: white;
+    font-size: 3rem;
+    font-family: var(--font);
+}
+
+
+/* navigation */
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 0 2rem 0;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+nav ul li {
+    padding: 1rem;
+}
+
+nav ul li :hover{
+    background: #072188;
+}
+
+/* main */
+main {
+    background: var(--light-blue);
+    color: var(--dark-blue);
+    padding: 1rem 0;
+}
+
+main h2 {
+    margin-left: 1rem;
+}
+
+#welcome {
+    background: white;
+    color: black;
+    margin: 1rem 0;
+    padding: 2rem;
+    display: flex;
+}
+
+#welcome img {
+    max-width: 200px;
+    margin: 0 1rem;
+    object-fit: contain;
+    align-self: flex-start;
+}
+
+#skills {
+    background: var(--dark-blue);
+    margin: 1rem 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card {
+    min-width: 150px;
+    max-width: 350px;
+    background: white;
+    color: black;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+
+}
+
+.card h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+footer {
+    display: flex;
+    min-height: 100px;
+}
+
+#social {
+    flex: 1;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+#copy {
+    flex: 2;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+/* mobile */
+@media only screen and (max-width: 600px) {
+    #container {
+        max-width: 100%;
+    }
+
+    #welcome {
+        flex-direction: column;
+    }
+
+    #welcome img {
+        margin: 1rem;
+        align-self: center;
+        max-width: 100%;
+    }
+
+    #skills {
+        flex-direction: column;
+        padding: 0 0 1rem 0;
+
+    }
+
+    .card {
+        max-width: 100%;
+        border-radius: 0px;
+        margin: 1rem 0 0 0;
+    }
+
+}

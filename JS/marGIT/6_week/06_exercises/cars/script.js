@@ -1,5 +1,7 @@
-let carsList = [];
-let searchResult = document.querySelector('#searchResult');
+'use strict';
+const carsList = [];
+const searchResult = document.querySelector('#searchResult');//gets the form of search result, use it to hide/unhide later (hidden by default)
+const addCarForm = document.querySelector('#addCarForm')//get form with all inputs to add a car
 
 //create Car prototype
 class Car {
@@ -14,15 +16,21 @@ class Car {
 }
 
 //this function takes users input and creates a new object with car prototype
-function addCar() {
-    let licensePlate = document.querySelector('#licensePlate');
-    let maker = document.querySelector('#maker');
-    let model = document.querySelector('#model');
-    let currentOwner = document.querySelector('#currentOwner');
-    let price = document.querySelector('#price');
-    let color = document.querySelector('#color');
+function addCar(event) {
+    event.preventDefault();
+    console.log("dasdas");
 
-    const newCar = new Car(licensePlate.value, maker.value, model.value, currentOwner.value, price.value, color.value); //create new object
+    const licensePlate = document.querySelector('#licensePlate').value;
+    const maker = document.querySelector('#maker').value;
+    const model = document.querySelector('#model').value;
+    const currentOwner = document.querySelector('#currentOwner').value;
+    const price = document.querySelector('#price').value;
+    const color = document.querySelector('#color').value;
+
+    console.log(licensePlate, maker, model, currentOwner, price, color);
+
+
+    const newCar = new Car(licensePlate, maker, model, currentOwner, price, color); //create new object
 
     carsList.push(newCar); //push the object to carList array
     //console.log(newCar);
@@ -76,3 +84,5 @@ function searchCar() {
         foundCar.innerText = `nothing found`;
     }
 }
+
+addCarForm.addEventListener('submit', addCar);

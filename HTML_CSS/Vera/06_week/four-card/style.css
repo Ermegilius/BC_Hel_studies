@@ -1,0 +1,65 @@
+:root {
+    --font: "Raleway", Verdana, sans-serif;
+
+    /* primary */
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    /* neutral */
+    --clr-neut-vdb: hsl(234, 12%, 34%);
+    --clr-neut-gb: hsl(229, 6%, 66%);
+    --clr-neut-vlg: hsl(0, 0%, 98%);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    background: var(--clr-neut-vlg);
+}
+
+.container {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.cols {
+    margin: 0 25px;
+
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+    main {
+        flex-direction: column;
+    }
+}

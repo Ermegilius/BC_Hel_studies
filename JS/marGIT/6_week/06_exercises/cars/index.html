@@ -11,28 +11,28 @@
         <div class="carForm">
             <h2>Add the car's info</h2> 
             <div class="box">   
-                <form>
+                <form id="addCarForm">
                     <label for="licensePlate">License plate</label>
-                    <input type="text" name="licensePlate" id="licensePlate" required>
+                    <input type="text" name="licensePlate" id="licensePlate">
 
                     <label for="maker">Maker</label>
-                    <input type="text" name="maker" id="maker" required>
+                    <input type="text" name="maker" id="maker">
 
                     <label for="model">Model</label>
-                    <input type="text" name="model" id="model" required>
+                    <input type="text" name="model" id="model">
 
                     <label for="currentOwner">Current owner</label>
-                    <input type="text" name="currentOwner" id="currentOwner" required>
+                    <input type="text" name="currentOwner" id="currentOwner">
 
                     <label for="price">Price</label>
-                    <input type="number" min="1" step="0.01"  name="price" id="price" required>
+                    <input type="text"   name="price" id="price">
 
                     <label for="color">Color</label>
-                    <input type="color" name="color" id="color" required>
+                    <input type="color" name="color" id="color">
+
                     <button type="reset">Reset the form</button> 
-                   
+                    <button type="submit">Add your car</button>
                 </form>
-                <button type="submit" onclick="addCar()">Add your car</button> 
             </div>
 
             <div class="box">

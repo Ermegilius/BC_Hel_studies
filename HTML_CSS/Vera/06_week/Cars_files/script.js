@@ -6,14 +6,13 @@ const searchCarForm = document.querySelector('#searchCarForm')//get form with ca
 
 //create Car prototype
 class Car {
-    constructor(licensePlate, maker, model, year, currentOwner, price, discountedPrice, color) {
+    constructor(licensePlate, maker, model, year, currentOwner, price, color) {
         this.licensePlate = licensePlate;
         this.maker = maker;
         this.model = model;
         this.year = year;
         this.currentOwner = currentOwner;
         this.price = price;
-        this.discountedPrice = discountedPrice;
         this.color = color;
     }
 }
@@ -27,42 +26,29 @@ function addCar(event) {
     const model = document.querySelector('#model').value;
     const year = document.querySelector('#year').value;
     const currentOwner = document.querySelector('#currentOwner').value;
-    const price = +document.querySelector('#price').value;
-    let discountedPrice = "-";//no discount by default
-
+    const price = document.querySelector('#price').value;
     const color = document.querySelector('#color').value;
 
-    console.log(licensePlate, maker, model, year, currentOwner, price, discountedPrice, color);
+    console.log(licensePlate, maker, model, year, currentOwner, price, color);
+
+
+
 
     //Error Handling for Input Validation
     try {
         if (licensePlate === "") {
             throw new Error("You forgot to fill the License plate field");
         } else if (typeof price !== 'number' || price < 0) {
-            console.log(typeof price);
             throw new Error("Price must be a positive number");
-        } else if (+year < 1886 && +year !== 0) {
-            console.log(typeof year);
-            console.log(`User inserted ${year} year`);
-            throw new Error("The first car was made in 1886. Make sure that you put down the right year");
-        } else if (year > new Date().getFullYear()) {
-            console.log(typeof year);
-            console.log(`User inserted ${year} year`);
-            throw new Error(`It's ${new Date().getFullYear()} now. Make sure that you put down the right year`);
         } else {
-            if (new Date().getFullYear() - +year > 10) { //cars that are older than 10 years should receive a 15% discount on their price
-                const DISCOUNT_RATE = 0.85;
-                discountedPrice = price * DISCOUNT_RATE;
-            }
-            const newCar = new Car(licensePlate, maker, model, year, currentOwner, price, discountedPrice, color); //create new object
-
+            const newCar = new Car(licensePlate, maker, model, year, currentOwner, price, color); //create new object
             carsList.push(newCar); //push the object to carList array
 
             let table = document.querySelector('#carsTable');//get the table
             let row = table.insertRow(-1);//add a raw in th bottom of the table
 
             //put user's input to the table cell by cell via loop
-            const values = [newCar.licensePlate, newCar.maker, newCar.model, newCar.year, newCar.currentOwner, newCar.price, discountedPrice, newCar.color];
+            const values = [newCar.licensePlate, newCar.maker, newCar.model, newCar.year, newCar.currentOwner, newCar.price, newCar.color];
             values.forEach((value, index) => {
                 let cell = row.insertCell(index);
                 cell.innerText = value;
@@ -82,8 +68,15 @@ function addCar(event) {
     } finally {
         console.log('License plate check was executed');
     }
+
     searchResult.classList.add('hidden');//hide search result div
 }
+
+
+
+
+
+
 
 //this function filters through the array and and returns the object keys by license plate match
 function searchCar(event) {
@@ -104,7 +97,6 @@ function searchCar(event) {
         year: ${filtered[0].year}\n
         current owner: ${filtered[0].currentOwner}\n
         price: ${filtered[0].price}\n
-        discounted price: ${filtered[0].discountedPrice}\n
         color: ${filtered[0].color}`;
     } else {
         foundCar.innerText = `nothing found`;

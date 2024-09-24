@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0103)http://127.0.0.1:5500/BC_Hel_studies/JS/marGIT/6_week/06_exercises/cars/index.html?licensePlateSearch=a -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./Cars_files/style.css">
     <title>Cars</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
                     <input type="text" name="model" id="model">
 
                     <label for="year">Year</label>
-                    <input type="number" step="1" name="year" id="year">
+                    <input type="text" name="year" id="year">
 
                     <label for="currentOwner">Current owner</label>
                     <input type="text" name="currentOwner" id="currentOwner">
@@ -58,20 +58,57 @@
         <div class="table" id="tableDiv">
             <h2>Table of all cars</h2> 
             <table id="carsTable">
-                <tr>
+                <tbody><tr>
                     <th>License plate</th>
                     <th>Maker</th>
                     <th>Model</th>
                     <th>Year</th>
                     <th>Current owner</th>
                     <th>Price</th>
-                    <th>Discounted price</th>
                     <th>Color</th>
                 </tr>
-            </table>
+            </tbody></table>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+    <script src="./Cars_files/tinycolor.min.js"></script>
+    <script src="./Cars_files/script.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

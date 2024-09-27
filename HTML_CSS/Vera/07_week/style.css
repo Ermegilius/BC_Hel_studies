@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: skyblue;
+    --font: Verdana, sans-serif;
+    --blue-color: blue;
+
+}
+
+body {
+    background: var(--primary-color);
+    font-family: var(--font);
+}
+
+.one {
+    display: grid;
+    max-width: 1000px;
+    background-color: #b3b3b3;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:  100px 100px 100px 100px;
+    gap: 1rem;
+    margin: 50px auto;
+}
+
+.item {
+    background: white;
+}
+
+.item:first-child {
+    background: green;
+    grid-column: 1 / span 4;
+}
+
+.item:nth-child(2) {
+    background: var(--blue-color);
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 2;
+}
+
+.item:last-child {
+    background: yellow;
+    grid-column: 1 / span 4;
+}
+
+.two {
+    display: grid;
+    max-width: 1000px;
+    grid-template-areas:
+    "whatever whatever whatever whatever whatever"
+    "left content content content right"
+    "left content content content right"
+    "left content content content right"
+    "bottom bottom bottom bottom bottom"
+    ;
+    margin: 0 auto;
+    gap: .4rem;
+    grid-auto-rows: 1fr;
+}
+
+.header {
+    grid-area: whatever;
+    background: green;
+    padding: 1rem;
+    min-height: 100px;
+}
+
+.left {
+    grid-area: left;
+    background: var(--blue-color);
+    padding: 1rem;
+}
+
+.main {
+    grid-area: content;
+    background: pink;
+    padding: 1rem;
+}
+
+.aside {
+    grid-area: right;
+    background: red;
+    padding: 1rem;
+}
+
+.footer {
+    grid-area: bottom;
+    background: black;
+    color: white;
+    padding: 1rem;
+    min-height: 100px;
+}
+
+.three {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr));
+    grid-gap: 1rem;
+    grid-auto-rows: 10rem;
+    max-width: 1000px;
+}
+
+.box {
+    background: var(--blue-color);
+    padding: 1rem;
+}

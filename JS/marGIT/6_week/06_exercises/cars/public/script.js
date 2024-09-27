@@ -74,11 +74,13 @@ function addCar(event) {
         let row = table.insertRow(-1);//add a raw in th bottom of the table
 
         //put user's input to the table cell by cell via loop
+
+        //displaytable separate function!!!!
         const values = [newCar.licensePlate, newCar.maker, newCar.model, newCar.year, newCar.currentOwner, newCar.price, discountedPrice, newCar.color];
         values.forEach((value, index) => {
             let cell = row.insertCell(index);
             cell.innerText = value;
-            if (index === values.length - 1) { //it's the lasr cell it a row
+            if (index === values.length - 1) { //it's the last cell it a row
                 // Check color luminance to adjust text color. Here I use an external library "tinycolor" to get a value of how bright the collor is. And use it to switch font collor between black and white.
                 cell.style.backgroundColor = newCar.color;// use the cars color to the cell
                 if (tinycolor(newCar.color).getLuminance() < 0.5) {

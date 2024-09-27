@@ -91,10 +91,15 @@ function placeOrder() {
 }
 
 function returnBack() {
-    order.classList.remove('hidden');
     order.classList.add('hidden');
-    section.classList.add('hidden');
-    section.classList.remove('hidden');
+    customizationSection.forEach((section) => {
+        section.classList.remove('hidden');
+    });
+
+    let inputs = document.getElementsByTagName('input');
+    Array.from(inputs).forEach((input) => {
+        input.value = "";
+    });
 }
 
 addEventListener('change', totalCounter);

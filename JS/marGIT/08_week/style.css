@@ -1,8 +1,8 @@
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   overscroll-behavior: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
 }
 
 html {
@@ -10,33 +10,88 @@ html {
 }
 
 body {
-    background-color: #ff0000;
-    font-family: Verdana, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #333;
 }
-
-header, main, footer {
-    padding: 1rem;
+  
+p {
+    line-height: 1.4;
 }
-
+  
+header,
+section,
+footer {
+    padding: 2rem;
+}
+  
 header {
     display: flex;
     justify-content: space-between;
     height: 100px;
-    position: sticky;
+    position: fixed;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+}
+  
+nav ul li {
+    display: inline-block;
+}
+
+.modal {
+    background-color: bisque;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #333;
+    padding:  2rem;
+    width: 80vw;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, .6);
+    position: fixed;
     top: 0;
-    background-color: white;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-nav ul li{
-    display: inline-block;
+.overlay.visible{
+    display: flex;
 }
 
 section {
     height: 45vh;
-    scroll-margin-top: 10rem;
+    scroll-margin-top: 150px;
 }
-
+  
+section:first-child {
+    background: url(../08_week/assets/imgs/header.JPG) no-repeat fixed
+      center center/cover;
+    height: 80vh;
+    padding-top: 100px;
+}
+  
+section:nth-child(2) {
+    background-color: rgb(36, 94, 96);
+    color: lightgoldenrodyellow;
+}
+  
+section:last-child {
+    background-color: rgb(8, 59, 61);
+    color: aliceblue;
+}
+  
 button {
     border: none;
     border-radius: 5px;
@@ -46,9 +101,40 @@ button {
     background-color: orange;
     font-size: inherit;
 }
-
+  
 #backTop {
     position: fixed;
     right: 2rem;
     bottom: 2rem;
 }
+  
+
+@media (max-width:800px) {
+    .mobile {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav ul.responsive {
+        display: block;
+        background-color: antiquewhite;
+        color: #333;
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    ul.responsive li {
+        display: block;
+        margin:  2rem;
+    }
+
+    header {
+        background-color: aliceblue;
+    }
+}
+
+  

@@ -17,18 +17,28 @@ class Car {
         this.model = model;
         this.year = year;
         this.currentOwner = currentOwner;
-        this.price = price;
+        this.price = parseFloat(price);
         this.discountedPrice = discountedPrice;
         this.color = color;
     }
 }
+
+const displayMessage = (message, type = "success") => {//success by default (if not defined in the function). 
+    const messageElement = document.querySelector("#message"); //get div, which appears after any operation to confirm the result
+    messageElement.textContent = message;
+    messageElement.className = type;
+    setTimeout(() => {
+        messageElement.textContent = "";
+        messageElement.className = "";
+    }, 3000);//in 3sec the message dissapears
+};
 
 function discountPrice(price) {
     const DISCOUNT_RATE = 0.85;
     return (price * DISCOUNT_RATE).toFixed(2);
 }
 
-//this function takes user's input and creates a new object with Car prototype
+//this function takes user's input and creates a new object with Car prototype and saves it in local storage
 function addCar(event) {
     event.preventDefault();//do not drop the table on submit
 
@@ -43,7 +53,7 @@ function addCar(event) {
     let discountedPrice = "-";//no discount by default
     const color = document.querySelector('#color').value.trim();
 
-    console.log(licensePlate, maker, model, year, currentOwner, price, discountedPrice, color);
+    console.log(`Added new car: ${licensePlate}, ${maker}, ${model}, ${year}, ${currentOwner}, ${price}, ${discountedPrice}, ${color}`);
 
     //Error Handling for Input Validation
     try {
@@ -80,49 +90,52 @@ function addCar(event) {
         const newCar = new Car(licensePlate, maker, model, year, currentOwner, price, discountedPrice, color); //create new object
         carsList.push(newCar); //push the object to carList array
 
-        //displayTable(newCar);//evoke function whick takes the newCar and inserts it to the table's fields
+        localStorage.setItem('carsList', JSON.stringify(carsList));//store carsList in localStorage as JSON
 
+        //createTable(newCar);//evoke function whick takes the newCar and inserts it to the table's fields
+        displayMessage("Car added successfully!");
         createTable();
 
+
     } catch (error) {
-        alert(`${error}`);
+        displayMessage(error.message, "error");
     } finally {
         console.log('License plate check was executed');
     }
     searchResult.classList.add('hidden');//hide search result div
 }
 
-// //this function uses created object to add lines to the table. Turned it off to use another one, which creates the table from the cars array.
-// function displayTable(car) {
-//     let table = document.querySelector('#carsTable');//get the table
-//     let row = table.insertRow(-1);//add a raw in th bottom of the table
-//     const values = [car.licensePlate, car.maker, car.model, car.year, car.currentOwner, car.price, car.discountedPrice, car.color];
-//     values.forEach((value, index) => {
-//         let cell = row.insertCell(index);
-//         cell.innerText = value;
-//         if (index === values.length - 1) { //it's the last cell it a row
-//             // Check the color's luminance to adjust text color. Here I use an external library "tinycolor" to get a value of how bright the collor is. And use it to switch font collor between black and white.
-//             cell.style.backgroundColor = car.color;// use the cars color to the cell
-//             if (tinycolor(car.color).getLuminance() < 0.5) {
-//                 cell.style.color = '#FFFFFF';//use white font if the color is dark
-//             } else {
-//                 cell.style.color = '#000';//use black font if the color is light
-//             }
-//         }
-//     });
-// }
+//this function creates the table using localStorage. We use it onload for the entire page.
+const loadCarsFromLocalStorage = () => {
+    const storedCars = localStorage.getItem('carsList');
+    if (storedCars) {
+        const parsedCars = JSON.parse(storedCars);
+        parsedCars.forEach(carData => {
+            carsList.push(new Car(carData.licensePlate.toUpperCase(), carData.maker, carData.model, carData.year, carData.currentOwner, carData.price, carData.discountedPrice, carData.color));
+        });
+        createTable();
+    }
+};
 
 //this function uses cars array to create the table
 function createTable() {
     let table = document.querySelector('#carsTable');//get the table
-    let row = table.insertRow(-1);//add a raw in th bottom of the table
-    carsList.forEach((car) => {
-        const values = [car.licensePlate, car.maker, car.model, car.year, car.currentOwner, car.price, car.discountedPrice, car.color];
 
-        values.forEach((value, index) => {
-            let cell = row.insertCell(index);
-            cell.innerText = value;
-            if (index === values.length - 1) { //it's the last cell it a row
+    // Clear existing rows except for the header (first row)
+    while (table.rows.length > 1) {
+        table.deleteRow(1);
+    }
+
+    // Create a row for each car
+    carsList.forEach((car, index) => {
+        let row = table.insertRow(-1);
+        const values = [car.licensePlate, car.maker, car.model, car.year, car.currentOwner, car.price.toFixed(2), car.discountedPrice, car.color];
+
+        values.forEach((value, i) => {
+            let cell = row.insertCell(i);
+            cell.innerText = value ?? 'N/A'; //in case of some frontend fail field receives "N/A value". In general these fields are required, so they can't be N/A.
+
+            if (value === values.at(-1)) { //it's the last cell it a row
                 // Check the color's luminance to adjust text color. Here I use an external library "tinycolor" to get a value of how bright the collor is. And use it to switch font collor between black and white.
                 cell.style.backgroundColor = car.color;// use the cars color to the cell
                 if (tinycolor(car.color).getLuminance() < 0.5) {
@@ -132,9 +145,22 @@ function createTable() {
                 }
             }
         });
+        //creates "delete" button in the last field of the table. This button calls deleteCar function.
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.classList.add("delete");
+        deleteButton.addEventListener("click", () => deleteCar(index));
+        row.insertCell(-1).appendChild(deleteButton);
     });
 }
 
+//deletes a car from the array using it's index.
+const deleteCar = (index) => {
+    carsList.splice(index, 1);
+    localStorage.setItem('carsList', JSON.stringify(carsList));
+    createTable();
+    displayMessage("Car deleted successfully!");
+};
 
 //this function filters through the array and and returns the object keys by license plate match
 function searchCar(event) {
@@ -178,3 +204,4 @@ function searchCar(event) {
 
 addCarForm.addEventListener('submit', addCar);
 searchCarForm.addEventListener('submit', searchCar);
+window.addEventListener('load', loadCarsFromLocalStorage);

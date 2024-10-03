@@ -6,17 +6,20 @@
     <link rel="stylesheet" href="./style.css">
     <title>DOM_demo</title>
 </head>
+
+
 <body>
     <header>
         <div class="logo">
-            <h1>Vova</h1>
+          <h1>Vova</h1>
         </div>
         <nav>
+            <button class="mobile">Menu</button>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#content">Content</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -34,6 +37,20 @@
             <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias sed ipsam, officia earum doloremque id vitae expedita? Laborum, dolores similique saepe laboriosam perferendis non distinctio, animi eum blanditiis repellendus corrupti.
             </p>
+            <button id="doNot">Don't click me!</button>
+
+            <div class="overlay">
+                <div class="modal">
+                    <div class="box">
+                        <h2>This is modal</h2>
+                        <button class="close">x</button>
+                    </div>
+                    
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore odio, blanditiis est quas quod suscipit temporibus vel animi ex totam distinctio dolorum quis soluta voluptatibus dignissimos iusto. Consectetur, magni.
+                    </p> 
+                </div>
+            </div>
         </section>
 
         <section id="about">

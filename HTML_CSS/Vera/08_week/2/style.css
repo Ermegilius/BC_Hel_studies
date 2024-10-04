@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: skyblue;
+    --font: Verdana, sans-serif;
+    --dark-col: #333;
+    --light-col: #f2dbdb;
+    --shadow-col: #f53e3e;
+    --basic-shadow: 5px 5px 5px var(--shadow-col);
+    --small-shadow: 1px 1px 2px var(--primary-color);
+    --gradient: linear-gradient(
+        to right top,
+        #051937,
+        #004d7a,
+        #008793,
+        #00bf72,
+        #a8eb12
+    );
+}
+
+body {
+    font-family: var(--font);
+    color: var(--dark-col);
+    background: var(--gradient);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.circle {
+    height: 200px;
+    width: 200px;
+    background: var(--light-col);
+    margin: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 100px var(--shadow-col);
+    position: relative;
+    top: 0;
+    left: 0;
+    animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-delay: 3s;
+}
+
+@keyframes example {
+    0%{
+        top: 0;
+        left: 0;
+    }
+    25%{
+        top: 0;
+        left: 300px;
+    }
+    50%{
+        top: 300px;
+        left: 300px;
+    }
+    75%{
+        top: 300px;
+        left: 0;
+    }
+    100%{
+        top: 0;
+        left: 0;
+    }
+}
+
+.text h1::after {
+    content: "";
+    height: 4px;
+    width: 0;
+    display: inherit;
+    background: var(--light-col);
+    transition:  all 1s ease-in;
+}
+
+.text:hover h1::after {
+    width: 100%;
+
+}
